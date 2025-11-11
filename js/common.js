@@ -27,23 +27,26 @@ function toggleClass(className, elementList, elementActive) {
 }
 
 // 页面组件映射
-// 目标页面的URL（同域）
-const targetUrl = '../components/NavBar.html'; // 例如同域下的另一个页面
+function requestComponents(componentsName, showID) {
+    const targetUrl = '../components/' + componentsName + '.html'; // 例如同域下的另一个页面
 
-// 发送请求获取目标页面HTML
-fetch(targetUrl)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('请求失败');
-        }
-        return response.text(); // 获取HTML文本
-    })
-    .then(html => {
-        // 将获取的HTML投射到当前页面
-        const container = document.getElementById('page-top');
-        container.innerHTML = html;
-        console.log('已加载目标页面内容');
-    })
-    .catch(error => {
-        console.error('获取失败：', error);
-    });
+    // 发送请求获取目标页面HTML
+    fetch(targetUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('请求失败');
+            }
+            return response.text(); // 获取HTML文本
+        })
+        .then(html => {
+            // 将获取的HTML投射到当前页面
+            const container = document.getElementById(showID);
+            container.innerHTML = html;
+            console.log('已加载目标页面内容');
+        })
+        .catch(error => {
+            console.error('获取失败：', error);
+        });
+}
+requestComponents('NavBar', 'page-top')
+requestComponents('FooterBar', 'page-bottom')
