@@ -244,3 +244,54 @@ p {
     transform: scale(0.7);
 
 }
+
+/* 页面底部 */
+#footer-translate {
+    background-color: #1E1E1E;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6.25rem;
+}
+
+#footer-translate .limit-box {
+    display: flex;
+    align-items: center;
+}
+
+#line-box {
+    display: inline-block;
+    padding: 0px 2.5rem;
+    position: relative;
+    width: 9.375rem;
+    height: .0625rem;
+    background-color: white;
+}
+
+#line-box::after {
+    content: 'TRANSLATE:';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background-color: #1E1E1E;
+    padding: 0px 1.25rem;
+}
+
+#footer-note-container {
+    background-color: #7F9F7C;
+    height: 6.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+#footer-note {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

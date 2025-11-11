@@ -1,83 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/common.css">
-    <style>
-        #footer-translate {
-            background-color: #1E1E1E;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 6.25rem;
-        }
-
-        #footer-translate .limit-box {
-            display: flex;
-            align-items: center;
-        }
-
-        #line-box {
-            display: inline-block;
-            padding: 0px 2.5rem;
-            position: relative;
-            width: 9.375rem;
-            height: .0625rem;
-            background-color: white;
-        }
-
-        #line-box::after {
-            content: 'TRANSLATE:';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            background-color: #1E1E1E;
-            padding: 0px 1.25rem;
-        }
-
-        #footer-note-container {
-            background-color: #7F9F7C;
-            height: 6.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-
-        #footer-note {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
-</head>
-
-<body>
-    <!-- 底部栏 -->
-    <footer id="footer">
-        <!-- 底部翻译栏 -->
-        <div id="footer-translate">
-            <div class="limit-box">
-                <div id="line-box">
-                </div>
+<!-- 底部栏 -->
+<footer id="footer">
+    <!-- 底部翻译栏 -->
+    <div id="footer-translate">
+        <div class="limit-box">
+            <div id="line-box">
             </div>
         </div>
-        <!-- 底部标注栏 -->
-        <div id="footer-note-container">
-            <div class="limit-box">
-                <div id="footer-note">© Copyright International Association for the Plant Protection Sciences. All
-                    rights reserved 2025.</div>
-            </div>
+    </div>
+    <!-- 底部标注栏 -->
+    <div id="footer-note-container">
+        <div class="limit-box">
+            <div id="footer-note">© Copyright International Association for the Plant Protection Sciences. All
+                rights reserved 2025.</div>
         </div>
-    </footer>
-</body>
-<script src="..//js/common.js"></script>
-
-</html>
+    </div>
+</footer>
