@@ -1,24 +1,34 @@
-// 页面滚动顶部动画
-let nav_bar_li = document.querySelectorAll('#nav-bar-box>li')
-let nav_bar = document.querySelector('#nav-bar-conrainer')
-let nav_bar_title = document.querySelector('#nav-bar-title')
-document.addEventListener('scroll', function (e) {
-    if (window.scrollY > 200) {
-        for (let index = 0; index < nav_bar_li.length; index++) {
-            nav_bar_li[index].classList.add('nav-bar-animation-li')
-        }
-        nav_bar.classList.add('nav-bar-conrainer-animation')
-        nav_bar_title.classList.add('nav-bar-title-animation')
+requestComponents('NavBar', 'page-top')
+requestComponents('FooterBar', 'page-bottom')
+// 页面 DOM 结构加载完成后执行
+document.addEventListener('DOMContentLoaded', function () {
+    // 这里写你要执行的操作，比如：
+    console.log('DOM 加载完成，可以操作元素了');
+    // 页面滚动顶部动画
+    let nav_bar_li = document.querySelectorAll('#nav-bar-box>li')
+    let nav_bar = document.querySelector('#nav-bar-conrainer')
+    let nav_bar_title = document.querySelector('#nav-bar-title')
+    document.addEventListener('scroll', function (e) {
+        if (window.scrollY > 200) {
+            for (let index = 0; index < nav_bar_li.length; index++) {
+                nav_bar_li[index].classList.add('nav-bar-animation-li')
+            }
+            nav_bar.classList.add('nav-bar-conrainer-animation')
+            nav_bar_title.classList.add('nav-bar-title-animation')
 
-    } else {
-        for (let index = 0; index < nav_bar_li.length; index++) {
-            nav_bar_li[index].classList.remove('nav-bar-animation-li')
-        }
-        nav_bar.classList.remove('nav-bar-conrainer-animation')
-        nav_bar_title.classList.remove('nav-bar-title-animation')
+        } else {
+            for (let index = 0; index < nav_bar_li.length; index++) {
+                nav_bar_li[index].classList.remove('nav-bar-animation-li')
+            }
+            nav_bar.classList.remove('nav-bar-conrainer-animation')
+            nav_bar_title.classList.remove('nav-bar-title-animation')
 
-    }
-})
+        }
+    })
+});
+
+
+
 function toggleClass(className, elementList, elementActive) {
     for (let index = 0; index < elementList.length; index++) {
         array[index].classList.remove(className)
@@ -48,5 +58,4 @@ function requestComponents(componentsName, showID) {
             console.error('获取失败：', error);
         });
 }
-requestComponents('NavBar', 'page-top')
-requestComponents('FooterBar', 'page-bottom')
+
