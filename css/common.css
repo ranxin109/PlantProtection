@@ -1,0 +1,246 @@
+/* 清除默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    list-style: none;
+
+}
+
+p {
+    font-size: .875rem;
+}
+
+/* 设置变量颜色 */
+:root {
+    --text-color: #538234;
+    --nav-bar-bg-color: #ECF6E7;
+}
+
+/* 宽度限制 */
+.limit-box {
+    width: 81.25rem;
+}
+
+/* 页面顶部 */
+#nav-bar-conrainer {
+    width: 100%;
+    height: 9.375rem;
+    background-color: var(--nav-bar-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    transition: height 200ms ease;
+}
+
+#nav-bar-title-translate-conrainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+#nav-bar-title {
+    display: flex;
+    align-items: center;
+    transform-origin: top left;
+    transition: 200ms ease;
+}
+
+
+
+#nav-bar-title h2 {
+    color: var(--text-color);
+}
+
+#nav-bar-title-img {
+    width: 7.5rem;
+    height: 5rem;
+    margin-right: 1.25rem;
+}
+
+#nav-bar-translate {
+    background-color: #F89406;
+    color: white;
+    border: none;
+    padding: .625rem 1.25rem;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0px 0px 10px 1px #6d6d6d;
+    position: relative;
+}
+
+
+#translate-language {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background-color: white;
+    color: black;
+    display: none;
+    grid-template-columns: repeat(15, 1fr);
+    font-size: .875rem;
+    z-index: 1;
+    border: .0625rem solid #eee;
+    box-shadow: 0 .1875rem .625rem .0625rem rgb(173, 173, 173);
+}
+
+#nav-bar-translate:focus #translate-language {
+    display: grid;
+}
+
+#translate-language>li {
+    padding: .3125rem .625rem;
+}
+
+#translate-language>li:hover {
+    background-color: #eee;
+}
+
+/* 导航栏 */
+#nav-bar-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+
+#nav-bar-box>li {
+    margin: 0px .625rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    overflow: visible;
+    transition: padding 200ms ease;
+}
+
+#nav-bar-box>li>p {
+    margin: 0px .625rem 0px .3125rem;
+}
+
+#nav-bar-box>li:hover>p,
+#nav-bar-box>li:hover>i {
+    color: var(--text-color);
+}
+
+#nav-bar-box>li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    transform: translateX(-50%);
+    height: .125rem;
+    background-color: skyblue;
+    transition: width 500ms ease;
+    border-radius: .125rem;
+}
+
+#nav-bar-box>li:hover:after {
+    width: 100%;
+}
+
+/* 联级菜单 */
+.more-first {
+    display: none;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    border: .0625rem solid #eee;
+    transition: 500ms linear;
+    border-top: .1875rem solid rgb(173, 173, 173);
+    box-shadow: 0 .1875rem .625rem .0625rem rgb(173, 173, 173);
+}
+
+#nav-bar-box>li:hover>.more-first {
+    display: block;
+    animation: moreUp 150ms linear;
+}
+
+.more-first li {
+    position: relative;
+    text-wrap: nowrap;
+    padding: .3125rem .625rem;
+    font-size: .875rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.more-first i {
+    margin-left: 1.25rem;
+}
+
+@keyframes moreUp {
+    0% {
+        top: 200%;
+        opacity: 0;
+    }
+
+    100% {
+        top: 100%;
+        opacity: 1;
+    }
+}
+
+.more-first>li:hover {
+    color: black;
+    background-color: #eee;
+}
+
+.more-second {
+    left: 100%;
+    top: 0;
+}
+
+@keyframes moreSecondUp {
+    0% {
+        top: 200%;
+        opacity: 0;
+    }
+
+    100% {
+        top: 0%;
+        opacity: 1;
+    }
+}
+
+.more-first>li:hover>.more-second {
+    display: block;
+    animation: moreSecondUp 300ms linear;
+}
+
+/* 登录按钮样式 */
+#nav-login-btn {
+    height: auto !important;
+    border: .125rem solid var(--text-color);
+    padding: .625rem .625rem;
+    border-radius: .3125rem;
+    color: var(--text-color);
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+#nav-login-btn p {
+    margin-right: 0px !important;
+}
+
+/* 设置滚动动画 */
+.nav-bar-animation-li {
+    padding: 0px .625rem;
+}
+
+#nav-bar-conrainer.nav-bar-conrainer-animation {
+    height: 8.125rem;
+}
+
+.nav-bar-title-animation {
+    transform: scale(0.7);
+
+}
