@@ -120,8 +120,16 @@ p {
     transition: padding 200ms ease;
 }
 
+#nav-bar-box>li.active {
+    color: var(--text-color);
+}
+
 #nav-bar-box>li>p {
     margin: 0px .625rem 0px .3125rem;
+}
+
+#nav-bar-box>li.active::after {
+    background-color: var(--text-color);
 }
 
 #nav-bar-box>li:hover>p,

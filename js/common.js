@@ -1,33 +1,10 @@
-requestComponents('NavBar', 'page-top')
-requestComponents('FooterBar', 'page-bottom')
+
 // 页面 DOM 结构加载完成后执行
 document.addEventListener('DOMContentLoaded', function () {
     // 这里写你要执行的操作，比如：
     console.log('DOM 加载完成，可以操作元素了');
-    // 页面滚动顶部动画
-    let nav_bar_li = document.querySelectorAll('#nav-bar-box>li')
-    let nav_bar = document.querySelector('#nav-bar-conrainer')
-    let nav_bar_title = document.querySelector('#nav-bar-title')
-    document.addEventListener('scroll', function (e) {
-        if (window.scrollY > 200) {
-            for (let index = 0; index < nav_bar_li.length; index++) {
-                nav_bar_li[index].classList.add('nav-bar-animation-li')
-            }
-            nav_bar.classList.add('nav-bar-conrainer-animation')
-            nav_bar_title.classList.add('nav-bar-title-animation')
 
-        } else {
-            for (let index = 0; index < nav_bar_li.length; index++) {
-                nav_bar_li[index].classList.remove('nav-bar-animation-li')
-            }
-            nav_bar.classList.remove('nav-bar-conrainer-animation')
-            nav_bar_title.classList.remove('nav-bar-title-animation')
-
-        }
-    })
 });
-
-
 
 function toggleClass(className, elementList, elementActive) {
     for (let index = 0; index < elementList.length; index++) {
@@ -38,7 +15,8 @@ function toggleClass(className, elementList, elementActive) {
 
 // 页面组件映射
 function requestComponents(componentsName, showID) {
-    const targetUrl = '../components/' + componentsName + '.html'; // 例如同域下的另一个页面
+    // const targetUrl = '../components/' + componentsName + '.html'; // 例如同域下的另一个页面
+    const targetUrl = `https://ranxin109.github.io/PlantProtection/components/${componentsName}.html`
 
     // 发送请求获取目标页面HTML
     fetch(targetUrl)
@@ -59,3 +37,38 @@ function requestComponents(componentsName, showID) {
         });
 }
 
+
+// 页面滚动顶部动画
+function scrollAnation() {
+    let nav_bar_li = document.querySelectorAll('#nav-bar-box>li')
+    let nav_bar = document.querySelector('#nav-bar-conrainer')
+    let nav_bar_title = document.querySelector('#nav-bar-title')
+    // 检查元素是否存在
+    if (!nav_bar_li || !nav_bar || !nav_bar_title) {
+        console.error('未找到导航栏元素，请检查选择器或组件是否加载');
+        // scrollAnation()
+    }
+    document.addEventListener('scroll', function (e) {
+        if (window.scrollY > 200) {
+            for (let index = 0; index < nav_bar_li.length; index++) {
+                nav_bar_li[index].classList.add('nav-bar-animation-li')
+            }
+            nav_bar.classList.add('nav-bar-conrainer-animation')
+            nav_bar_title.classList.add('nav-bar-title-animation')
+
+        } else {
+            for (let index = 0; index < nav_bar_li.length; index++) {
+                nav_bar_li[index].classList.remove('nav-bar-animation-li')
+            }
+            nav_bar.classList.remove('nav-bar-conrainer-animation')
+            nav_bar_title.classList.remove('nav-bar-title-animation')
+
+        }
+    })
+}
+requestComponents('NavBar', 'page-top')
+requestComponents('FooterBar', 'page-bottom')
+setTimeout(function () {
+    scrollAnation()
+
+}, 1000)
