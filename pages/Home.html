@@ -8,21 +8,305 @@
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+<style>
+    #home-notice-container {
+        position: relative;
+        width: 100%;
+        height: 46.875rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+    }
+
+    #home-notice-container::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-image: var(--bg-ing, 'url(' ')');
+        /* animation: var(--bg-animation, 'bg-op 1s linear'); */
+        transition: opacity 500ms linear;
+        opacity: var(--bg-opacity, '1');
+    }
+
+    @keyframes bg-op {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+
+    }
+
+    #notice-text-container {
+        height: 100%;
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    #notice-text-large-text,
+    #notice-text-small-text {
+        max-width: 90%;
+        width: 95vw;
+        background-color: rgba(243, 235, 219, 0.5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        text-shadow: .125rem .125rem .0625rem black;
+        justify-content: space-evenly;
+        height: 9.375rem;
+        border-radius: .625rem;
+
+    }
+
+    #notice-text-small-text {
+        height: auto;
+        padding: 1.25rem;
+        margin: 3.125rem 0px;
+        align-items: flex-start;
+    }
+
+    #notice-text-box,
+    #home-notice-list-box {
+        max-width: 90%;
+        width: 95vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-evenly;
+    }
+
+    #home-notice-list-box>ul {
+        padding: .625rem 1.25rem;
+
+    }
+
+    #home-notice-list-box>ul>li {
+        list-style: initial;
+        margin-left: 1.25rem;
+    }
+
+    #home-notice-list {
+        background-color: var(--text-color);
+        color: white;
+        font-size: .75rem;
+        border-radius: .625rem;
+
+    }
+
+    #home-notice-list a {
+        text-decoration: none;
+        color: white;
+
+    }
+
+    #members-list {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        column-gap: 5vw;
+        row-gap: 1.25rem;
+        padding: .625rem 1.875rem;
+        padding-top: 3vh;
+        padding-bottom: 10vh;
+        box-sizing: border-box;
+        /* display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        box-sizing: border-box; */
+    }
+
+    #members-list>li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        aspect-ratio: 1 / 1;
+    }
+
+    #members-list>li img {
+        width: 100%;
+        height: 100%;
+        border: 1px solid gray;
+    }
+</style>
 
 <body>
-    <div id="page-top" style=" position: sticky; top: 0;"></div>
-    <div id="page-home">123</div>
+    <div id="page-top" style=" position: sticky; top: 0; z-index: 2;"></div>
+    <div id="page-home">
+        <!-- 背景轮播图 -->
+        <div id="home-notice-container">
+            <!-- 下方波浪 -->
+            <div style="transform: rotate(180deg); position: absolute; left: 0; bottom: 0; width: 100%; z-index: 1;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"
+                    fill="transparents">
+                    <path fill="white" opacity="0.33"
+                        d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7 c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z">
+                    </path>
+                    <path fill="white" opacity="0.66"
+                        d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1 s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z">
+                    </path>
+                    <path fill="white"
+                        d="M766.1,28.9c-200-57.5-266,65.5-395.1,19.5C242,1.8,242,5.4,184.8,20.6C128,35.8,132.3,44.9,89.9,52.5C28.6,63.7,0,0,0,0 h1000c0,0-9.9,40.9-83.6,48.1S829.6,47,766.1,28.9z">
+                    </path>
+                </svg>
+            </div>
+            <!-- 文字部分 -->
+            <div class="limit-box" id="notice-text-container">
+                <div id="notice-text-large-text">
+                    <h1>WELCOME TO IAPPS</h1>
+                    <h3>THE INTERNATIONAL ASSOCIATION FOR THE PLANT PROTECTION SCIENCES</h3>
+                </div>
+                <div id="notice-text-box">
+                    <div id="notice-text-small-text">
+                        <h5>Our aim: to promote the development of an integrated approach to plant protection research
+                            and its practical
+                            application.</h5>
+                    </div>
+
+                </div>
+                <div id="home-notice-list-box">
+                    <ul id="home-notice-list">
+                        <strong>LATEST POSTINGS</strong>
+                        <li>
+                            <a href="https://www.plantprotection.org/next-international-plant-protection-congress-athens-1-5-july-2024"
+                                rel="noopener" target="_blank"
+                                aria-label="Next International Plant Protection Congress in Christchurch, New Zealand – 2027. (opens in a new tab)">Next
+                                International Plant Protection Congress in Christchurch, New Zealand –
+                                2027.</a>
+                        </li>
+                        <li>
+                            <a href="https://www.plantprotection.org/iapps-newsletter-3/" rel="noopener" target="_blank"
+                                aria-label="Latest IAPPS Newsletter (opens in a new tab)">Latest
+                                IAPPS Newsletter</a>
+                        </li>
+                        <li>
+                            <a href="https://www.plantprotection.org/iapps-online-news/">Recent Global
+                                Plant
+                                Protection News items</a>
+                        </li>
+                        <li>
+                            <a href="https://www.plantprotection.org/international-seminars-forthcoming/">Forthcoming
+                                Events: Biological Control Conference, 25–28 February 2025 – Bengaluru,
+                                India.</a>
+                        </li>
+                        <li>
+                            <a href="https://www.journals.elsevier.com/crop-protection/recent-articles" rel="noopener"
+                                target="_blank" aria-label="Latest Crop Protection articles (opens in a new tab)">Latest
+                                Crop
+                                Protection articles</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- IAPPS Corporate and Affiliate Members部分 -->
+        <div style="display: flex; align-items: center; justify-content: center; ">
+            <div class="limit-box">
+                <h2 style="margin-left: .625rem;">IAPPS Corporate and Affiliate Members</h2>
+                <ul id="members-list">
+                </ul>
+            </div>
+        </div>
+    </div>
     <div id="page-bottom"></div>
 
 </body>
 <script src="../js/common.js"></script>
 <script>
-    let html = ''
-    for (let index = 0; index < 200; index++) {
-        html += `<div>${index}</div>`
+    let scroll_img_list = [
+        'https://www2.plantprotection.org/wp-content/uploads/corn-field-1200x600-1.jpg',
+        'https://www2.plantprotection.org/wp-content/uploads/grain-1200x600-1.jpg',
+        'https://www2.plantprotection.org/wp-content/uploads/tractor-sprayer-1200x600-1.jpg',
+        'https://www2.plantprotection.org/wp-content/uploads/field-1200x600-1.jpg',
+        'https://www2.plantprotection.org/wp-content/uploads/crop_inspection_background_1200x600.jpg',
+        'https://www2.plantprotection.org/wp-content/uploads/ippc_hyderabad_background_1200.jpg',
+        'https://www2.plantprotection.org/wp-content/uploads/rice-farmers-1200x600-1.jpg',
+        'https://www2.plantprotection.org/wp-content/uploads/rice-carry-1200x600-1.jpg',
+        'https://www2.plantprotection.org/wp-content/uploads/potatoes-1200x600-1.jpg',
+        'https://www2.plantprotection.org/wp-content/uploads/lettuce-1200x600-1.jpg',
+        'https://www2.plantprotection.org/wp-content/uploads/lemons-1200x600-1.jpg',
+        'https://www2.plantprotection.org/wp-content/uploads/grain-head-1200x600-1.jpg'
+    ]
+    let scroll_container = document.querySelector('#home-notice-container')
+    // scroll_container.style.backgroundImage = `url("${scroll_img_list[0]}")`
+    scroll_container.style.setProperty('--bg-ing', `url("${scroll_img_list[0]}")`)
+    let scroll_index = 0
+    setInterval(function () {
+        if (scroll_index > scroll_img_list.length - 2) {
+            scroll_index = 0
+        }
+        scroll_index++
+        scroll_container.style.setProperty('--bg-opacity', 0.5)
 
+        // scroll_container.style.setProperty('--bg-animation', `bg-op 2s linear`)
+        setTimeout(function () {
+            scroll_container.style.setProperty('--bg-ing', `url("${scroll_img_list[scroll_index]}")`)
+            scroll_container.style.setProperty('--bg-opacity', 1)
+
+        }, 500)
+
+
+    }, 10000)
+
+    let logo_list = [
+        'https://www.plantprotection.org/wp-content/uploads/morocco_ppse-1.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/morocco_pp.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/iapps_journal_icon-160x120.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/Plant-Protection-Society-logo-300x300.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/Plant-Protection-Society-logo.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/mapps_logo.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/IRRI-logo-1.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/IPPC_logo_Green_2lines_en.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/ipm_innovation_lab_logo.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/iita-logo-square-002.png',
+        'https://www.plantprotection.org/wp-content/uploads/ICIPE-1.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/hellenic_soc-150x150.gif',
+        'https://www.plantprotection.org/wp-content/uploads/efpp_logo-1.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/DPG-064-1.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/czech_logo.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/cspp_logo.png',
+        'https://www.plantprotection.org/wp-content/uploads/CropLife-1.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/cbc_logo.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/Canadian-pp-1.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/bspp_logo.jpeg',
+        'https://www.plantprotection.org/wp-content/uploads/brazil_ent_soc-1.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/apwss_logo.png',
+        'https://www.plantprotection.org/wp-content/uploads/arab_spp_logo-300x300.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/emb_vizr_corr-a_sml-300x300.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/Sufit.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/FELA.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/World-veg.png',
+        'https://www.plantprotection.org/wp-content/uploads/pestnet_logo_horiz.png',
+        'https://www.plantprotection.org/wp-content/uploads/ISWS-LOGO2-1-600x600.jpg',
+        'https://www.plantprotection.org/wp-content/uploads/Plant-Protection-Association-of-India-300x300.png',
+        'https://www.plantprotection.org/wp-content/uploads/NZ-logo-300x300.jpg'
+    ]
+    let logo_html = ''
+    for (let logo_index = 0; logo_index < logo_list.length; logo_index++) {
+        logo_html += `
+                    <li><img src="${logo_list[logo_index]}" alt=""></li>
+                    
+        `
     }
-    document.querySelector('#page-home').innerHTML = html
+    document.querySelector('#members-list').innerHTML = logo_html
 </script>
 
 </html>

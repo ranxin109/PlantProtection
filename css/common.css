@@ -22,20 +22,23 @@ p {
 
 /* 宽度限制 */
 .limit-box {
-    width: 81.25rem;
+    width: 90vw;
+    max-width: 75rem;
+    box-sizing: border-box;
 }
 
 /* 页面顶部 */
 #nav-bar-conrainer {
     width: 100%;
-    height: 9.375rem;
+    padding-bottom: .625rem;
     background-color: var(--nav-bar-bg-color);
     display: flex;
     align-items: center;
     justify-content: center;
     position: sticky;
     top: 0;
-    transition: height 200ms ease;
+    transform-origin: top;
+    transition: 200ms ease;
 }
 
 #nav-bar-title-translate-conrainer {
@@ -83,7 +86,7 @@ p {
     color: black;
     display: none;
     grid-template-columns: repeat(15, 1fr);
-    font-size: .875rem;
+    font-size: .875rem !important;
     z-index: 1;
     border: .0625rem solid #eee;
     box-shadow: 0 .1875rem .625rem .0625rem rgb(173, 173, 173);
@@ -106,7 +109,9 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     flex: 1;
+    margin-top: .625rem;
 }
 
 
@@ -115,9 +120,11 @@ p {
     display: flex;
     align-items: center;
     position: relative;
-    height: 100%;
     overflow: visible;
+    padding-top: .625rem;
+    padding-bottom: .625rem;
     transition: padding 200ms ease;
+    font-size: .75rem;
 }
 
 #nav-bar-box>li.active {
@@ -125,10 +132,12 @@ p {
 }
 
 #nav-bar-box>li>p {
+    font-size: .75rem;
     margin: 0px .625rem 0px .3125rem;
 }
 
 #nav-bar-box>li.active::after {
+    width: 100%;
     background-color: var(--text-color);
 }
 
@@ -241,11 +250,13 @@ p {
 
 /* 设置滚动动画 */
 .nav-bar-animation-li {
-    padding: 0px .625rem;
+    padding-left: .625rem;
+    padding-right: .625rem;
 }
 
 #nav-bar-conrainer.nav-bar-conrainer-animation {
-    height: 8.125rem;
+    transform: scaleY(0.9);
+    box-shadow: 0px 0px 10px 1px #eee;
 }
 
 .nav-bar-title-animation {
@@ -302,4 +313,40 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* 背景标题组件 */
+#BgTitle {
+    width: 100%;
+    height: 9.375rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../res/IMG_20250924_201020.jpg);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#BgTitle h1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    margin: 0;
+}
+
+#BgTitle::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.4;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }

@@ -49,7 +49,8 @@ function scrollAnation() {
         // scrollAnation()
     }
     document.addEventListener('scroll', function (e) {
-        if (window.scrollY > 200) {
+        console.log(window.scrollY)
+        if (window.scrollY > 100) {
             for (let index = 0; index < nav_bar_li.length; index++) {
                 nav_bar_li[index].classList.add('nav-bar-animation-li')
             }
@@ -68,6 +69,8 @@ function scrollAnation() {
 }
 requestComponents('NavBar', 'page-top')
 requestComponents('FooterBar', 'page-bottom')
+requestComponents('BgTitle', 'page-title')
+
 setTimeout(function () {
     scrollAnation()
 
