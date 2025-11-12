@@ -1,17 +1,7 @@
 
-// 页面 DOM 结构加载完成后执行
-document.addEventListener('DOMContentLoaded', function () {
-    // 这里写你要执行的操作，比如：
-    console.log('DOM 加载完成，可以操作元素了');
 
-});
 
-function toggleClass(className, elementList, elementActive) {
-    for (let index = 0; index < elementList.length; index++) {
-        array[index].classList.remove(className)
-    }
-    elementActive.classList.add(className)
-}
+
 
 // 页面组件映射
 function requestComponents(componentsName, showID) {
@@ -70,8 +60,36 @@ function scrollAnation() {
 requestComponents('NavBar', 'page-top')
 requestComponents('FooterBar', 'page-bottom')
 requestComponents('BgTitle', 'page-title')
-
+let pages = [
+    'Home.html',
+    'About.html',
+    'PlantProtection.html',
+    'Events.html',
+    'Resources.html',
+    'Links.html',
+    'Membership.html',
+    'Cart.html',
+    'Login.html'
+]
 setTimeout(function () {
     scrollAnation()
-
+    toggleNav()
 }, 1000)
+
+function reTitle(title, bgImage) {
+    let BgTitle = document.querySelector('#BgTitle>h1')
+    let BgImage = document.querySelector('#BgTitle')
+    BgImage.style.backgroundImage = `url(${bgImage})`
+    BgTitle.textContent = title
+}
+
+function toggleNav() {
+    let nav = document.querySelector('#nav-bar-box')
+    let nav_li = document.querySelectorAll('#nav-bar-box>li')
+    nav.addEventListener('click', function (e) {
+        e.preventDefault()
+        e.stopPropagation()
+        console.log(e.target.dataset.nav)
+        // location.href = e.target.dataset.nav+'.html'
+    })
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAPPS</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        #two-colums {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-top: 1.25rem;
+        }
+
+        #join-box {
+            width: 90%;
+            padding: 1.25rem;
+            border: 2px solid var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #join-box a {
+            color: var(--text-color);
+            font-weight: bolder;
+            text-decoration: none;
+            margin: .625rem 0px;
+        }
+
+        #join-box p {
+            margin: 0;
+        }
+
+        #handshake {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            background-color: var(--text-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            font-size: 1.875rem;
+            justify-content: center;
+            transition: 300ms linear;
+            cursor: pointer;
+        }
+
+        #handshake:hover {
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="page-top" style=" position: sticky; top: 0; z-index: 2;"></div>
+    <div id="page-title"></div>
+    <div class="page-main-other">
+        <div class="limit-box">
+            <h3>Benefits of Membership (Individual and Institutional)</h3>
+            <div id="two-colums">
+                <div>
+                    <ul>
+                        <li>
+                            <p><strong>Free access</strong> to the online version of <strong>Crop Protection</strong>;
+                                published by Elsevier [the Official
+                                journal of IAPPS].</p>
+                        </li>
+                        <li>
+                            <p>The option of subscribing to the print version of Crop Protection at a considerable
+                                <strong>discount rate</strong>.
+                            </p>
+                        </li>
+
+                        <li>
+                            <p><strong>Reduced registration fee</strong>to attend the International Plant Protection
+                                Congress (IPPC) –
+                                the next IPPC to be held in
+                                Athens, Greece, June 2024.</p>
+                        </li>
+                        <li>
+                            <p><strong>Different individual fees – developed countries ($50), developing countries
+                                    ($35), and students ($30).</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>The opportunity</strong> to propose, be informed of, and attend regional symposia
+                                and workshops
+                                supported by IAPPS.</p>
+                        </li>
+                        <li>
+                            <p><strong>Publish, without charge,</strong> relevant information (e.g. local IPM programs
+                                and events) in the
+                                IAPPS Newsletter via the Crop
+                                Protection journal and on the IAPPS website.</p>
+                        </li>
+                    </ul>
+                    <h3>How to Join IAPPS:</h3>
+
+                    <p>
+                        <text style="font-size: .875rem; font-weight: bold;">Before you can join IAPPS <color
+                                class="blue-a">, you first need
+                                to select and pay
+                                the appropriate membership fee
+                                online</color>
+                        </text>
+                        . You have the option
+                        of paying by credit card or PayPal. The attached “<color class="blue-a">IAPPS Membership Guide
+                        </color>” (pdf file) shows you
+                        the steps involved.
+                    </p>
+                </div>
+                <div>
+                    <div id="join-box">
+                        <div id="handshake">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <a href="">Join IAPPS here</a>
+                        <p><strong>Become a member of IAPPS.</strong></p>
+                    </div>
+                    <p><strong>Institutional Membership and Fees</strong></p>
+                    <p>The purpose of Institutional membership is to enhance collaboration between IAPPS and
+                        organisations that have mutual
+                        plant protection goals. The Institutional Membership fee ($850) includes up to 10 individual
+                        memberships and two
+                        subscriptions to the printed version of Crop Protection.</p>
+                    <p><strong>Affiliate Membership</strong></p>
+                    <p>National and regional societies involved in plant protection activities are encouraged to become
+                        affiliate members of
+                        IAPPS to promote collaboration activities with IAPPS. While no registration fee is required
+                        Affiliate members are
+                        expected to meet certain responsibilities. <a href="" class="blue-a">Click here </a> <strong>
+                            for
+                            more information.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="page-bottom"></div>
+</body>
+<script src="../js/common.js"></script>
+<script>
+    setTimeout(function () {
+        reTitle('Join IAPPS', 'https://www.plantprotection.org/wp-content/uploads/iapps_banner_750x90.jpg')
+    }, 100)
+</script>
+
+</html>

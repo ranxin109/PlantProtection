@@ -18,6 +18,7 @@ p {
 :root {
     --text-color: #538234;
     --nav-bar-bg-color: #ECF6E7;
+    --color: rgb(35, 186, 246);
 }
 
 /* 宽度限制 */
@@ -319,10 +320,10 @@ p {
 #BgTitle {
     width: 100%;
     height: 9.375rem;
+    background-image: url('../res/IMG_20250924_201020.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url(../res/IMG_20250924_201020.jpg);
     color: white;
     display: flex;
     align-items: center;
@@ -337,6 +338,8 @@ p {
     transform: translate(-50%, -50%);
     z-index: 1;
     margin: 0;
+    width: 100%;
+    text-align: center;
 }
 
 #BgTitle::after {
@@ -349,4 +352,33 @@ p {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+.page-main-other {
+    background-color: var(--nav-bar-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-main-other>.limit-box {
+    background-color: white;
+    padding: 3.125rem;
+}
+
+.page-main-other>.limit-box p,
+li {
+    margin: .625rem 0px;
+    font-size: .75rem;
+}
+
+.page-main-other>.limit-box li {
+    list-style: initial;
+    margin-left: 3.125rem;
+}
+
+.page-main-other .blue-a {
+    color: rgb(35, 186, 246);
+    text-decoration: none;
+    font-weight: bold;
 }

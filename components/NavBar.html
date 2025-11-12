@@ -76,9 +76,9 @@
         <ul id="nav-bar-box">
             <!-- 导航栏元素 -->
             <!-- Home -->
-            <li class="active"><i class="fa-solid fa-house"></i></li>
+            <li class="active" data-nav="Home"><i class="fa-solid fa-house"></i></li>
             <!-- About -->
-            <li><i class="fa-solid fa-circle-info"></i>
+            <li data-nav="About"><i class="fa-solid fa-circle-info"></i>
                 <p>About</p>
                 <ul class="more-first">
                     <li>Aims & Activities</li>
@@ -88,7 +88,7 @@
                 <i class="fa-solid fa-caret-down"></i>
             </li>
             <!-- Plant Protection -->
-            <li><i class="fa-solid fa-leaf"></i>
+            <li data-nav="PlantProtection"><i class="fa-solid fa-leaf"></i>
                 <p>Plant Protection</p>
                 <ul class="more-first">
                     <li>Introduction</li>
@@ -98,7 +98,7 @@
                 <i class="fa-solid fa-caret-down"></i>
             </li>
             <!-- Events -->
-            <li><i class="fa-solid fa-comments"></i>
+            <li data-nav="Events"><i class="fa-solid fa-comments"></i>
                 <p>Events</p>
                 <ul class="more-first">
                     <li>Introduction
@@ -126,7 +126,7 @@
                 <i class="fa-solid fa-caret-down"></i>
             </li>
             <!-- Resources -->
-            <li><i class="fa-solid fa-building-columns"></i>
+            <li data-nav="Resources"><i class="fa-solid fa-building-columns"></i>
                 <p>Resources</p>
                 <ul class="more-first">
                     <li>Online News – GPPN</li>
@@ -146,10 +146,11 @@
                 <i class="fa-solid fa-caret-down"></i>
             </li>
             <!-- Links -->
-            <li><i class="fa-solid fa-link"></i>
+            <li data-nav="Links"><i class="fa-solid fa-link"></i>
                 <p>Links</p>
             </li>
-            <li><i class="fa-solid fa-people-group"></i>
+            <!-- Membership -->
+            <li data-nav="Membership"><i class="fa-solid fa-people-group"></i>
                 <p>Membership</p>
                 <ul class="more-first">
                     <li>Join IAPPS</li>
@@ -157,10 +158,10 @@
                 </ul>
                 <i class="fa-solid fa-caret-down"></i>
             </li>
-            <!-- Membership -->
-            <li><i class="fa-solid fa-cart-shopping"></i></li>
+            <!-- Cart -->
+            <li data-nav="Cart"><i class="fa-solid fa-cart-shopping"></i></li>
             <!-- Login -->
-            <li id="nav-login-btn"><i class="fa-solid fa-user"></i>
+            <li data-nav="Login" id="nav-login-btn"><i class="fa-solid fa-user"></i>
                 <p>Login</p>
             </li>
         </ul>

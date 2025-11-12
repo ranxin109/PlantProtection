@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAPPS</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        #table-container {
+            display: flex;
+        }
+
+        #table-header {
+            flex: 2;
+        }
+
+        #table-header>div {
+            font-size: .75rem;
+            padding: .625rem 1.25rem;
+            box-sizing: border-box;
+        }
+
+        #table-header>div.active {
+            border: 1px solid gray;
+            position: relative;
+        }
+
+        #table-header>div.active::after {
+            content: '';
+            position: absolute;
+            right: -0.1875rem;
+            top: 0;
+            width: .1875rem;
+            height: 100%;
+            background-color: white;
+        }
+
+        #table-main {
+            flex: 7;
+            border: 1px solid gray;
+            padding: .625rem 1.25rem;
+        }
+
+        #table-main div {
+            display: none;
+            width: 100%;
+        }
+
+        #table-main div.active {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="page-top" style=" position: sticky; top: 0; z-index: 2;"></div>
+    <div id="page-title"></div>
+    <div class="page-main-other">
+        <div class="limit-box">
+            <p><strong>The societies and other organisations listed on this page include those primarily focused on
+                    plant protection topics.
+                    Other societies, such as entomological societies, not primarily focused on plant protection issues,
+                    are also included
+                    since they often address significant topics of relevance to plant protection.</strong></p>
+            <p>By selecting a discipline shown below you will see the list of societies included in our database. Click
+                on a society
+                listed in blue to visit its website.</p>
+            <p>If you find a broken link or would like to nominate a relevant society not currently included in this
+                database, please
+                contact support@plantprotection.org.</p>
+            <div id="table-container">
+                <div id="table-header">
+                    <div class="active">Acarology</div>
+                    <div>Arachnology</div>
+                    <div>Entomology</div>
+                    <div>Nematology</div>
+                    <div>Plant Pathology</div>
+                    <div>Plant Protection</div>
+                    <div>Weed Science</div>
+                    <div>Other Organisations</div>
+                </div>
+                <div id="table-main">
+                    <div class="active">
+                        <ul>
+                            <li>
+                                <p class="blue-a">Acarological Society of Japan</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Systematic and Applied Acarology Society</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <p class="blue-a">International Society of Arachnology</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <li>
+                            <p class="blue-a">African Association of Insect Scientists (AAIS)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Asociación Española de Entomología</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Australian Entomological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Brazilian Society of Entomology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">British Entomological and Natural History Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Chilean Society of Entomology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Croatian Entomological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Czech Entomological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Danish Entomological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Egyptian Entomological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of America</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of Austria</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of Brazil</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of Canada</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of China</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of Denmark</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of India</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of Israel</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of Italy</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of Japan</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of Korea</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of Latvia</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of Mexico</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of Munich</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of New South Wales (Australia)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of New Zealand</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of Queensland (Australia)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of Southern Africa</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of Victoria</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomological Society of Zurich</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Entomology Society of Iran</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Flemish Entomological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Florida Entomological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Galician Entomological Association “Luis Iglesias” (Spain)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Gazi Entomological Research Society (Turkey)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Georgia Entomological Society (United States)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Hellenic Entomological Society (Greece)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">International Society of Entomology (Germany)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Italian Entomological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Japanese Society of Applied Entomology and Zoology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Kansas Entomological Society (United States)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Korean Society of Applied Entomology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Nederlandse Entomologische Vereniging</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Netherlands Entomological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Norwegian Entomological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Österreische Entomologische Gesellschaft</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Overseas Chinese Entomologists Association (North America)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Philippine Association of Entomologists</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Polish Entomological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Scandinavian Society of Entomology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Sociedad Chilena de Entomología</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Sociedad Colombiana de Entomologia</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Sociedad Entomológica Argentina</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Sociedad Entomológica Aragonesa</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Sociedad Entomológia del Perú</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Sociedad Española de Entomología Aplicada</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Sociedad Mexicana de Entomologia</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Sociedad Venezolana de Entomología</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Società Entomologica Italiana</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Societe D’Entomologie Africaine</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Société Entomologique de France</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Société Entomologica de Italiana</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Society for Invertebrate Pathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">South Carolina Entomological Society (United States)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Society of Southwestern Entomologists (United States)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Spanish Society of Applied Entomology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Ukrainian Entomological Society</p>
+                        </li>
+                    </div>
+                    <div>
+                        <li>
+                            <p class="blue-a">Afro-Asian Society of Nematologists</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Australasian Association of Nematologists</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Chinese Society of Plant Nematologists</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Egyptian Society of Agricultural Nematology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">International Federation of Nematology Societies</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Italian Society of Nematologists</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Japanese Nematological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Nematological Society of India</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Nematological Society of Southern Africa</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Organization of Nematologists of Tropical America</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Pakistan Society of Nematologists</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Russian Society of Nematologists</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Society of Nematologists</p>
+                        </li>
+                    </div>
+                    <div>
+                        <li>
+                            <p class="blue-a">American Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Argentinean Society of Plant Pathologists</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Asian Association of Societies for Plant Pathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Asociación Latinoamericana de Fitopatología</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Asociación Peruana de Fitopatología</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Asociación Colombiana de Fitopatología y Ciencias Afines (ASCOLFI)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Australasian Plant Pathology Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Bangladesh Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Belgium Association for Research in Zoology and Phytopathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Belarusian Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Brazilian Society for Plant Pathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">British Society for Plant Pathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Canadian Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Chilean Society for Phytopathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">China Taiwan Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Chinese Society for Plant Pathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Czech Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Danish Society for Plant Pathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Egyptian Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Ethiopian Society of Plant Pathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">European Foundation for Plant Pathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">French Phytopathological Society (SFP)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">French Society for Phytopathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Hellenic Phytopathological Society (Greece)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Hungarian Society for Plant Pathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Indian Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Indonesian Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">International Society for Plant Pathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Iranian Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Israeli Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Italian Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Japanese Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Korean Society of Plant Pathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Kyrgyz Society for Plant Pathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Latin American Association for Phytopathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Mediterranean Phytopathological Union</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Mexican Society for Plant Pathology (SMF)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Norwegian Society for Plant Pathology (NPPF)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Pakistan Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Peruvian Association for Phytopathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Philippine Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Phytopathological Society of Japan</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Phytopathology Society of Uruguay</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Plant Pathology Society of Kenya</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Polish Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Portuguese Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Royal Netherlands Society of Plant Pathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Russian Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Sociedad Chilena de Fitopatología</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Sociedad Española de Fitopatología</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Sociedad Mexicana de Fitopatología</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Sociedad Venezolana de Fitopatología</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Société Française de Phytopathologie</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Society of Irish Plant Pathologists</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Southern African Society for Plant Pathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Spanish Society for Phytopathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Sri Lanka Association for Mycology and Plant Pathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Sudanese Society for Plant Pathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Swedish Society of Biopathology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Taiwan Phytopathological Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Thai Phytopathology Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Venezuelan Society for Phytopathology</p>
+                        </li>
+                    </div>
+                    <div>
+                        <li>
+                            <p class="blue-a">Arab Society for Plant Protection</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Argentine Crop Protection Association</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Asociacion Latinoamericana de Fitopatologia</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Association for Advancement in Plant Protection</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Association Française de Protection des Plantes</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Association National pour la Production la Protection et l’Amélioration
+                                Végétale</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Association of Applied Biologists</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Association of Natural Biocontrol Producers</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Belgian Society of Crop Protection</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Caribbean Society for Plant Protection</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Chinese Society for Plant Protection (CSPP)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Consortium for International Crop Protection – IPMnet</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Crop Protection Society of Ethiopia</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Deutsche Phytomedizinische Gesellschaft E.v. (DPG)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">European Crop Protection Association</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">European Group for Integrated Pest Management in Development Cooperation
+                            </p>
+                        </li>
+                        <li>
+                            <p class="blue-a">European Network for the Durable Exploitation of Crop Protection
+                                Strategies (ENDURE)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Finnish Plant Protection Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">German Crop Protection Association</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">International Society for Pest Information</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Italian Association for Plant Protection</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Malaysian Plant Protection Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Moroccan Association for Plant Protection</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">New Zealand Plant Protection Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Nigerian Society for Plant Protection</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">NSF Center for Integrated Pest Management</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Pesticide Science Society of Japan</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Plant Protection Society of Ethiopia</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Plant Protection Society of Finland</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Plant Protection Society of Nepal</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Quebec Society for the Protection of Plants</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Schweizerische Gesellschaft für Phytomedizin (SGP)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Singapore Plant Protection Society</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Society for Plant Protection in the Caribbean (Trinidad and Tobago)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Swiss Society for Phytiatry</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">The British Crop Protection Council</p>
+                        </li>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <p class="blue-a">Asian Pacific Weed Science Society</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Asociación Mexicana de la Ciencia de la Maleza (ASOMECIMA)</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Associación Latinoamericana de Malezas (ALAM)</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Bosnia and Herzegovina Weed Science Society</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Brazilian Society of Weed Science</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">California Invasive Plant Council (Cal-IPC)</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Canadian Weed Science Society</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Council of Australian Weed Science Societies (CAWSS)</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Crop and Weed Science Society of West Bengal</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Cuban Weed Science Society</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">European Weed Research Society (EWRS)</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Hungarian Weed Research Society (HWRS)</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Indian Society of Weed Science</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">International Allelopathy Society</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">International Parasitic Plant Society</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">International Parthenium Research News Group</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">International Weed Science Society (IWSS)</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Iranian Society of Weed Science</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Italian Weed Research Society</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Korean Society of Weed Science</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Mexican Weed Science Association</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Nicaraguan Weed Science Society</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">North Eastern Weed Science Society</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Sociedad Cubana de Malezologia</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Sociedad Española de Malherbologia (SEmh)</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Sociedad Venezolana Para el Combate de Malezas (SOVECOM)</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">South African Weed Science Society</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Tasmanian Weed Society</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Turkish Weed Science Society</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Venezuelan Weed Science Society</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Weed Management Society of South Australia</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Weed Science Society of America</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Weed Science Society of Indonesia</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Weed Science Society of Israel</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Weed Science Society of Japan</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Weed Science Society of New South Wales</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Weed Science Society of Pakistan</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Weed Science Society of the Philippines</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Weed Science Society of Thailand</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Weed Science Society of the Republic of China</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Weed Science Society of the Republic of China (WSSROC Taiwan)</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Weed Society of Queensland</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Weed Society of Victoria</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Weeds Society of Western Australia</p>
+                            </li>
+                            <li>
+                                <p class="blue-a">Western Society of Weed Science</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <li>
+                            <p class="blue-a">Abteilung Molekularbiologie und Virologie der Pflanzen – Uni Stuttgart</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">AfricanCrops.net</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Arbofux-Diagnose datenbank für Gehölze</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Bioversity International</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">CABI IPM Forum</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Centre for Invasive Plant Management</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">CGIAR Systemwide Program on IPM</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Community IPM, FAO IPM Facility</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Consortium for International Crop Protection – IPMnet</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">CropLife International</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">EU Plant Protection Resources</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">European and Mediterranean Plant Protection Organization (EPPO)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">FRAC – Fungicide Resistance Action Committee</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Global IPM Facility</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Global Plant Clinic</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Herbicide Resistance Action Committee</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">ICIPE (African Insect Science for Food and Health)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Institute of Phytopathology and Applied Zoology</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">International Institute of Tropical Agriculture</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">International Organisation for Biological Control (IOBC)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">International Parthenium Research Group News</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Integrated Plant Protection Center</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">International Plant Diagnostic Network</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">International Society for Plant Pathology (ISPP) Newsletter</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Invasive Species Specialist group</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">IPM EUROPE</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Online Information Service for Non-Chemical Pest Management in the Tropics
+                                (OISAT)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Pest Helpers (USA)</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Pharmakobotanik</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">Podcast: Pflanzenschutz im Gartembau</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">REBECA – Regulation of Biological Control Agents</p>
+                        </li>
+                        <li>
+                            <p class="blue-a">The World Vegetable Center</p>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="page-bottom"></div>
+</body>
+<script src="../js/common.js"></script>
+<script>
+    setTimeout(function () {
+        reTitle('Links to Professional Societies and Other Organisations', 'https://www.plantprotection.org/wp-content/uploads/2020/03/symposia_1.jpg')
+    }, 100)
+
+    let header_list = document.querySelectorAll('#table-header>div')
+    let main_list = document.querySelectorAll('#table-main div')
+    let table_header = document.querySelector('#table-header')
+    table_header.addEventListener('click', function (e) {
+        e.preventDefault()
+        let element_list = [...header_list]
+        let current_active = document.querySelector('#table-header>.ative')
+        if (current_active === e.target) return
+        toggleClass('active', header_list, e.target)
+        toggleClass('active', main_list, main_list[element_list.indexOf(e.target)])
+
+    })
+    function toggleClass(className, elementList, elementActive) {
+        for (let index = 0; index < elementList.length; index++) {
+            elementList[index].classList.remove(className)
+        }
+        elementActive.classList.add(className)
+    }
+</script>
+
+</html>
