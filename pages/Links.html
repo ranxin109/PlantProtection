@@ -891,6 +891,7 @@
 <script src="../js/common.js"></script>
 <script>
     setTimeout(function () {
+        activeNav(5)
         reTitle('Links to Professional Societies and Other Organisations', 'https://www.plantprotection.org/wp-content/uploads/2020/03/symposia_1.jpg')
     }, 100)
 
@@ -906,12 +907,7 @@
         toggleClass('active', main_list, main_list[element_list.indexOf(e.target)])
 
     })
-    function toggleClass(className, elementList, elementActive) {
-        for (let index = 0; index < elementList.length; index++) {
-            elementList[index].classList.remove(className)
-        }
-        elementActive.classList.add(className)
-    }
+
 </script>
 
 </html>

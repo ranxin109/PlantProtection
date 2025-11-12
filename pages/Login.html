@@ -99,20 +99,20 @@
     <div class="page-main-other">
         <div class="limit-box">
             <h3>Login</h3>
-            <div id="login-box">
+            <form id="login-box">
                 <div class="input-item">
                     <label for="">Username or email address<span style="color: red;">*</span></label>
-                    <input type="text" name="" id="">
+                    <input type="text" name="" id="" required>
                 </div>
                 <div class="input-item" id="password-box">
                     <label for="">Password<span style="color: red;">*</span></label>
-                    <input type="password" name="" id="password">
+                    <input type="password" name="" id="password" required>
                     <i id="no-show-password" class="fa-solid fa-eye-slash"></i>
                     <i id="show-password" class="fa-solid fa-eye"></i>
                 </div>
                 <div id="confirm">
                     <div>
-                        <input type="checkbox" name="" id="">
+                        <input type="checkbox" name="" id="" required>
                         <label for="">验证</label>
                     </div>
                     <svg class="login-captcha-svg" width="65" height="17" viewBox="0 0 65 17" fill="none"
@@ -123,13 +123,13 @@
                     </svg>
                 </div>
                 <div>
-                    <input type="checkbox" name="" id="">
+                    <input type="checkbox" name="" id="" required>
                     <label for="" style="font-size: .75rem;">Remember me</label>
                 </div>
-                <button id="login" type="button">Login in</button>
+                <button id="login" type="submit">Login in</button>
                 <p class="blue-a">Lost your password?</p>
 
-            </div>
+            </form>
         </div>
     </div>
     <div id="page-bottom"></div>
@@ -137,6 +137,7 @@
 <script src="../js/common.js"></script>
 <script>
     setTimeout(function () {
+        activeNav(8)
         reTitle('My Account', 'https://www.plantprotection.org/wp-content/uploads/user_banner.jpg')
     }, 100)
     let no_show = document.querySelector('#no-show-password')
@@ -152,6 +153,8 @@
         no_show.style.display = 'initial'
         _password.type = 'password'
 
+    })
+    document.querySelector('#login').addEventListener('click', function () {
     })
 </script>
 

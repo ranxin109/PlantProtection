@@ -14,11 +14,12 @@ p {
     font-size: .875rem;
 }
 
-/* 设置变量颜色 */
+/* 设置变量 */
 :root {
     --text-color: #538234;
     --nav-bar-bg-color: #ECF6E7;
     --color: rgb(35, 186, 246);
+    --translate: 'TRANSLATE：English';
 }
 
 /* 宽度限制 */
@@ -83,10 +84,13 @@ p {
     position: absolute;
     top: 110%;
     right: 0;
+    width: 100%;
+    height: 50vh;
+    overflow: scroll;
     background-color: white;
     color: black;
     display: none;
-    grid-template-columns: repeat(15, 1fr);
+    /* grid-template-columns: repeat(15, 1fr); */
     font-size: .875rem !important;
     z-index: 1;
     border: .0625rem solid #eee;
@@ -103,6 +107,11 @@ p {
 
 #translate-language>li:hover {
     background-color: #eee;
+}
+
+#translate-language>li.active {
+    background-color: var(--text-color);
+    color: white;
 }
 
 /* 导航栏 */
@@ -126,6 +135,7 @@ p {
     padding-bottom: .625rem;
     transition: padding 200ms ease;
     font-size: .75rem;
+    cursor: pointer;
 }
 
 #nav-bar-box>li.active {
@@ -174,6 +184,7 @@ p {
     transition: 500ms linear;
     border-top: .1875rem solid rgb(173, 173, 173);
     box-shadow: 0 .1875rem .625rem .0625rem rgb(173, 173, 173);
+    z-index: 1;
 }
 
 #nav-bar-box>li:hover>.more-first {
@@ -189,6 +200,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: white;
 }
 
 .more-first i {
@@ -284,13 +296,13 @@ p {
     display: inline-block;
     padding: 0px 2.5rem;
     position: relative;
-    width: 9.375rem;
+    width: 100%;
     height: .0625rem;
     background-color: white;
 }
 
 #line-box::after {
-    content: 'TRANSLATE:';
+    content: var(--translate);
     position: absolute;
     top: 50%;
     left: 50%;

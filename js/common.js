@@ -1,12 +1,21 @@
-
-
-
-
+let pages = [
+    'Home.html',
+    'About.html',
+    'PlantProtection.html',
+    'Events.html',
+    'Resources.html',
+    'Links.html',
+    'Membership.html',
+    'Cart.html',
+    'Login.html'
+]
 
 // 页面组件映射
 function requestComponents(componentsName, showID) {
     // const targetUrl = '../components/' + componentsName + '.html'; // 例如同域下的另一个页面
-    const targetUrl = `https://ranxin109.github.io/PlantProtection/components/${componentsName}.html`
+    // const targetUrl = `https://ranxin109.github.io/PlantProtection/components/${componentsName}.html`
+    // https://raw.githubusercontent.com/ranxin109/PlantProtection/refs/heads/master/components/NavBar.html
+    const targetUrl = `https://raw.githubusercontent.com/ranxin109/PlantProtection/refs/heads/master/components/${componentsName}.html`
 
     // 发送请求获取目标页面HTML
     fetch(targetUrl)
@@ -29,7 +38,7 @@ function requestComponents(componentsName, showID) {
 
 
 // 页面滚动顶部动画
-function scrollAnation() {
+function scrollAnation(activeElement) {
     let nav_bar_li = document.querySelectorAll('#nav-bar-box>li')
     let nav_bar = document.querySelector('#nav-bar-conrainer')
     let nav_bar_title = document.querySelector('#nav-bar-title')
@@ -60,21 +69,12 @@ function scrollAnation() {
 requestComponents('NavBar', 'page-top')
 requestComponents('FooterBar', 'page-bottom')
 requestComponents('BgTitle', 'page-title')
-let pages = [
-    'Home.html',
-    'About.html',
-    'PlantProtection.html',
-    'Events.html',
-    'Resources.html',
-    'Links.html',
-    'Membership.html',
-    'Cart.html',
-    'Login.html'
-]
+
 setTimeout(function () {
     scrollAnation()
     toggleNav()
-}, 1000)
+    toggleTranslate()
+}, 500)
 
 function reTitle(title, bgImage) {
     let BgTitle = document.querySelector('#BgTitle>h1')
@@ -86,10 +86,34 @@ function reTitle(title, bgImage) {
 function toggleNav() {
     let nav = document.querySelector('#nav-bar-box')
     let nav_li = document.querySelectorAll('#nav-bar-box>li')
-    nav.addEventListener('click', function (e) {
-        e.preventDefault()
-        e.stopPropagation()
-        console.log(e.target.dataset.nav)
-        // location.href = e.target.dataset.nav+'.html'
+    for (let index = 0; index < nav_li.length; index++) {
+        const element = nav_li[index];
+        element.addEventListener('click', function (e) {
+            e.preventDefault()
+            console.log(e.currentTarget)
+            location.href = `${e.currentTarget.dataset.nav}.html`
+        })
+    }
+}
+function toggleClass(className, elementList, elementActive) {
+    for (let index = 0; index < elementList.length; index++) {
+        elementList[index].classList.remove(className)
+    }
+    elementActive.classList.add(className)
+}
+
+function activeNav(index) {
+    let nav_bar_li = document.querySelectorAll('#nav-bar-box>li')
+    let nav_bar_li_list = [...nav_bar_li]
+    nav_bar_li_list[index].classList.add('active')
+}
+
+function toggleTranslate() {
+    let _translate = document.querySelector('#translate-language')
+    let _translate_li = document.querySelectorAll('#translate-language>li')
+    _translate.addEventListener('click', function (e) {
+        if (e.target === this) return
+        toggleClass('active', _translate_li, e.target)
     })
+
 }
