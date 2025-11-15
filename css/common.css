@@ -178,6 +178,11 @@ body {
     width: 100%;
 }
 
+/* 手机导航栏 */
+#nav-bar-menu-btn {
+    display: none;
+}
+
 /* 联级菜单 */
 .more-first {
     display: none;
@@ -431,5 +436,13 @@ li {
 
     #BgTitle h1 {
         font-size: .875rem;
+    }
+
+    #nav-bar-box {
+        display: none;
+    }
+
+    #nav-bar-menu-btn {
+        display: initial;
     }
 }
