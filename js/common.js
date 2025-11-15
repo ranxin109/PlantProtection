@@ -117,3 +117,178 @@ function toggleTranslate() {
 
 }
 
+let nav_data_list = [
+    {
+        name: 'Home',
+        icon: 'fa-house'
+    },
+    {
+        name: 'About',
+        icon: 'fa-circle-info',
+        children: [
+            { name: 'Aims & Activities' },
+            { name: 'Brief History of IAPPS' },
+            { name: 'The IAPPS Board' }
+        ]
+    },
+    {
+        name: 'Plant Protection',
+        icon: 'fa-comments',
+        children: [
+            {
+                name: 'The International Plant Protection Congress (IPPC)'
+            },
+            {
+                name: 'IAPPS Regional Seminars, Workshops, and Congresses'
+            },
+            {
+                name: 'Other Plant Protection Meetings'
+            }
+        ]
+    },
+    {
+        name: 'Events',
+        icon: 'fa-leaf',
+        children: [
+            {
+                name: 'Introduction',
+                children: [
+                    { name: 'Next Congress – Christchurch, New Zealand 2027' },
+                    { name: 'Application details for hosting the IPPC 2031' }
+                ]
+            },
+            {
+                name: 'An Integrated Approach to Plant Protection',
+                children: [
+                    { name: 'Forthcoming Regional Seminars, Workshops, and Congresses' },
+                    { name: 'Previous IAPPS Regional Seminars, Workshops, and Congresses' }
+                ]
+            },
+            {
+                name: 'Main Disciplines',
+                children: [
+                    { name: 'Forthcoming Meetings' },
+                    { name: 'Previous Meetings' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Resources',
+        icon: 'fa-building-columns',
+        children: [
+            { name: 'Online News – GPPN' },
+            { name: 'IAPPS Newsletter & Archive' },
+            { name: 'Crop Protection Journal' },
+            {
+                name: 'Education and Training',
+                children: [
+                    { name: 'Plant Protection Stories – reports, news, and opinions on plant protection' },
+                    { name: 'A Review of Digital Identification Tools for Plant Biosecurity' },
+                    { name: 'Online identification keys for rice insect pests and natural enemies' },
+                    { name: 'Guide to Plant Protection information' },
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Links',
+        icon: 'fa-link'
+    },
+    {
+        name: 'Membership',
+        icon: 'fa-people-group',
+        children: [
+            { name: 'Join IAPPS' },
+            { name: 'Available Subscriptions' }
+        ]
+    },
+    {
+        name: 'Cart',
+        icon: 'fa-cart-shopping'
+    },
+    {
+        name: 'Login',
+        icon: 'fa-user'
+    }
+]
+let mobile_nav_html = ''
+let menu_one_level = document.querySelector('#menu-one-level')
+for (let index = 0; index < nav_data_list.length; index++) {
+    let two_level = ''
+    let three_level = ''
+    if (nav_data_list[index].children) {
+        console.log(nav_data_list[index].children)
+        two_level = ''
+        for (let j = 0; j < nav_data_list[index].children.length; j++) {
+            const element = nav_data_list[index].children[j];
+            if (element.children) {
+                three_level = ''
+                element.children.forEach(three_element => {
+                    three_level += `<li>${three_element.name}</li>`
+                })
+                two_level += `
+                <li>
+                    <div class="menu-title-box">
+                        <p>${element.name}</p>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
+                    <ul class="menu-three-level">
+                        ${three_level}
+                    </ul>
+                </li>
+                `
+            } else {
+                two_level += `<li>${element.name}</li>`
+            }
+        }
+        mobile_nav_html += `
+            <li data-nav="PlantProtection">
+                        <div>
+                            <i class="fa-solid ${nav_data_list[index].icon}"></i>
+                            <p>${nav_data_list[index].name}</p>
+                            <i class="fa-solid fa-caret-down"></i>
+                        </div>
+                        <ul class="menu-two-level">${two_level}</ul>
+            </li>
+            `
+    } else {
+        mobile_nav_html += `
+        <li class="" data-nav="Home">
+                        <div>
+                            <i class="fa-solid ${nav_data_list[index].icon}"></i>
+                            <p>${nav_data_list[index].name}</p>
+                        </div>
+                    </li>
+        `
+    }
+
+
+}
+menu_one_level.innerHTML = mobile_nav_html
+document.querySelector('#menu-one-level>:first-child').classList.add('active')
+let all_level_element_list = document.querySelector('#menu-one-level').querySelectorAll('*')
+let one_level_element_list = document.querySelectorAll('#menu-one-level>li')
+let one_level_menu = document.querySelector('#menu-one-level')
+one_level_element_list.forEach(item => {
+    item.addEventListener('click', function (e) {
+        if (!e.currentTarget.querySelector('ul')) {
+            toggleClass('active', all_level_element_list, e.currentTarget)
+            return
+        }
+        if ((e.target.tagName === 'LI') & !e.target.querySelector('ul')) {
+            toggleClass('active', all_level_element_list, e.target)
+
+        }
+    })
+})
+
+function toggleClass(className, elementList, elementActive) {
+    for (let index = 0; index < elementList.length; index++) {
+        elementList[index].classList.remove(className)
+    }
+    elementActive.classList.add(className)
+}
+document.querySelector('#nav-bar-menu-btn').addEventListener('click', function () {
+    one_level_menu.classList.toggle('active')
+})
