@@ -25,6 +25,19 @@
             max-height: 9.375rem;
             object-fit: cover;
         }
+
+        @media screen and (max-width: 768px) {
+            #image-box {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .image-box-item img {
+                max-height: auto;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
     </style>
 </head>
 

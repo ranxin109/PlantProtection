@@ -14,6 +14,10 @@ p {
     font-size: .875rem;
 }
 
+body {
+    background-color: var(--nav-bar-bg-color);
+}
+
 /* 设置变量 */
 :root {
     --text-color: #538234;
@@ -185,6 +189,7 @@ p {
     border-top: .1875rem solid rgb(173, 173, 173);
     box-shadow: 0 .1875rem .625rem .0625rem rgb(173, 173, 173);
     z-index: 1;
+    color: black;
 }
 
 #nav-bar-box>li:hover>.more-first {
@@ -393,4 +398,38 @@ li {
     color: rgb(35, 186, 246);
     text-decoration: none;
     font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    #nav-bar-translate {
+        font-size: .75rem;
+        padding: .3125rem;
+    }
+
+    #translate-language {
+        box-sizing: border-box;
+    }
+
+    #translate-language>li {
+        padding: .3125rem;
+        font-size: .625rem !important;
+    }
+
+    #nav-bar-title-text p {
+        display: none;
+    }
+
+    #nav-bar-title-img {
+        width: 20vw;
+        margin-right: .3125rem;
+        height: auto;
+    }
+
+    #BgTitle {
+        height: 20vh;
+    }
+
+    #BgTitle h1 {
+        font-size: .875rem;
+    }
 }

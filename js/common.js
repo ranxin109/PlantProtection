@@ -48,7 +48,6 @@ function scrollAnation(activeElement) {
         // scrollAnation()
     }
     document.addEventListener('scroll', function (e) {
-        console.log(window.scrollY)
         if (window.scrollY > 100) {
             for (let index = 0; index < nav_bar_li.length; index++) {
                 nav_bar_li[index].classList.add('nav-bar-animation-li')

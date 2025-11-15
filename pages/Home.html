@@ -146,6 +146,35 @@
         height: 100%;
         border: 1px solid gray;
     }
+
+    @media screen and (max-width: 768px) {
+
+        #notice-text-large-text,
+        #notice-text-small-text {
+            max-width: none;
+            width: 100%;
+            height: auto;
+            box-sizing: border-box;
+            padding: .3125rem;
+        }
+
+        #notice-text-large-text h1,
+        #notice-text-large-text h3 {
+            text-align: center;
+        }
+
+        #members-list {
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: normal;
+            padding: .3125rem;
+            row-gap: normal;
+        }
+
+        #members-list>li {
+            width: 20%;
+        }
+    }
 </style>
 
 <body>
