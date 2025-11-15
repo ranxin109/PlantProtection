@@ -196,6 +196,8 @@ body {
     z-index: 0;
     display: none;
     transition: 200ms linear;
+    pointer-events: none;
+
 }
 
 #nav-mask.active {

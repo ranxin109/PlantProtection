@@ -95,12 +95,6 @@ function toggleNav() {
         })
     }
 }
-function toggleClass(className, elementList, elementActive) {
-    for (let index = 0; index < elementList.length; index++) {
-        elementList[index].classList.remove(className)
-    }
-    elementActive.classList.add(className)
-}
 
 function activeNav(index) {
     let nav_bar_li = document.querySelectorAll('#nav-bar-box>li')
@@ -121,13 +115,14 @@ function toggleTranslate() {
 let nav_data_list = [
     {
         name: 'Home',
-        icon: 'fa-house'
+        icon: 'fa-house',
+        location: 'Home'
     },
     {
         name: 'About',
         icon: 'fa-circle-info',
         children: [
-            { name: 'Aims & Activities' },
+            { name: 'Aims & Activities', location: 'About' },
             { name: 'Brief History of IAPPS' },
             { name: 'The IAPPS Board' }
         ]
@@ -137,7 +132,8 @@ let nav_data_list = [
         icon: 'fa-comments',
         children: [
             {
-                name: 'The International Plant Protection Congress (IPPC)'
+                name: 'The International Plant Protection Congress (IPPC)',
+                location: 'PlantProtection'
             },
             {
                 name: 'IAPPS Regional Seminars, Workshops, and Congresses'
@@ -154,7 +150,7 @@ let nav_data_list = [
             {
                 name: 'Introduction',
                 children: [
-                    { name: 'Next Congress – Christchurch, New Zealand 2027' },
+                    { name: 'Next Congress – Christchurch, New Zealand 2027', location: 'Events' },
                     { name: 'Application details for hosting the IPPC 2031' }
                 ]
             },
@@ -178,7 +174,7 @@ let nav_data_list = [
         name: 'Resources',
         icon: 'fa-building-columns',
         children: [
-            { name: 'Online News – GPPN' },
+            { name: 'Online News – GPPN', location: 'Resources' },
             { name: 'IAPPS Newsletter & Archive' },
             { name: 'Crop Protection Journal' },
             {
@@ -194,23 +190,26 @@ let nav_data_list = [
     },
     {
         name: 'Links',
-        icon: 'fa-link'
+        icon: 'fa-link',
+        location: 'Links'
     },
     {
         name: 'Membership',
         icon: 'fa-people-group',
         children: [
-            { name: 'Join IAPPS' },
+            { name: 'Join IAPPS', location: 'Membership' },
             { name: 'Available Subscriptions' }
         ]
     },
     {
         name: 'Cart',
-        icon: 'fa-cart-shopping'
+        icon: 'fa-cart-shopping',
+        location: 'Cart'
     },
     {
         name: 'Login',
-        icon: 'fa-user'
+        icon: 'fa-user',
+        location: 'Login'
     }
 ]
 function mobile_nav() {
@@ -227,7 +226,7 @@ function mobile_nav() {
                 if (element.children) {
                     three_level = ''
                     element.children.forEach(three_element => {
-                        three_level += `<li>${three_element.name}</li>`
+                        three_level += `<li data-mnav="${three_element.location}">${three_element.name}</li>`
                     })
                     two_level += `
                 <li>
@@ -241,11 +240,11 @@ function mobile_nav() {
                 </li>
                 `
                 } else {
-                    two_level += `<li>${element.name}</li>`
+                    two_level += `<li data-mnav="${element.location}">${element.name}</li>`
                 }
             }
             mobile_nav_html += `
-            <li data-nav="PlantProtection">
+            <li>
                         <div>
                             <i class="fa-solid ${nav_data_list[index].icon}"></i>
                             <p>${nav_data_list[index].name}</p>
@@ -256,7 +255,7 @@ function mobile_nav() {
             `
         } else {
             mobile_nav_html += `
-        <li class="" data-nav="Home">
+        <li class="" data-mnav="${nav_data_list[index].location}">
                         <div>
                             <i class="fa-solid ${nav_data_list[index].icon}"></i>
                             <p>${nav_data_list[index].name}</p>
@@ -274,13 +273,21 @@ function mobile_nav() {
     let one_level_menu = document.querySelector('#menu-one-level')
     one_level_element_list.forEach(item => {
         item.addEventListener('click', function (e) {
+            let html_location
             if (!e.currentTarget.querySelector('ul')) {
                 toggleClass('active', all_level_element_list, e.currentTarget)
+                html_location = e.currentTarget.dataset.mnav
                 return
             }
-            if ((e.target.tagName === 'LI') & !e.target.querySelector('ul')) {
+            if ((e.target.tagName === 'LI') && !e.target.querySelector('ul')) {
                 toggleClass('active', all_level_element_list, e.target)
-
+                html_location = e.target.dataset.mnav
+            }
+            console.log(html_location)
+            // console.log(typeof html_location)
+            // console.log('undefinedString：', html_location === 'undefined', '|', ' :', html_location === '', '|', 'undefined：', html_location === undefined)
+            if (html_location !== 'undefined' && html_location !== '' && html_location !== undefined) {
+                location.href = `../pages/${html_location}.html`
             }
         })
     })
@@ -293,7 +300,20 @@ function mobile_nav() {
         one_level_menu.classList.toggle('active')
         nav_mask.classList.toggle('active')
     })
+
+}
+function M_active_nav(dataset) {
+    console.log(dataset)
+    let all_level_element_list = document.querySelector('#menu-one-level').querySelectorAll('*')
+    let set_nav_element = document.querySelector(`[data-mnav="${dataset}"]`)
+    toggleClass('active', all_level_element_list, set_nav_element)
+    // console.log(set_nav_element)
 }
 
-
+function toggleClass(className, elementList, elementActive) {
+    for (let index = 0; index < elementList.length; index++) {
+        elementList[index].classList.remove(className)
+    }
+    elementActive.classList.add(className)
+}
 
