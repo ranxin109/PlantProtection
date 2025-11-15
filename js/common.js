@@ -285,7 +285,7 @@ function mobile_nav() {
         })
     })
     let nav_mask = document.querySelector('#nav-bar-menu-btn')
-    nav_mask.addEventListener('click', function () {
+    document.querySelector('#nav-mask>i').addEventListener('click', function () {
         one_level_menu.classList.toggle('active')
         nav_mask.classList.toggle('active')
     })
