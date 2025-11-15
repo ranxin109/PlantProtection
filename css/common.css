@@ -217,7 +217,6 @@ body {
     overflow: scroll;
     border: 1px solid #eeeeeead;
     transition: 200ms linear;
-    display: none;
 }
 
 #menu-one-level.active {
