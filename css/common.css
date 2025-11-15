@@ -45,6 +45,7 @@ body {
     top: 0;
     transform-origin: top;
     transition: 200ms ease;
+    z-index: 2;
 }
 
 #nav-bar-title-translate-conrainer {
@@ -181,6 +182,103 @@ body {
 /* 手机导航栏 */
 #nav-bar-menu-btn {
     display: none;
+
+}
+
+#menu-one-level {
+    background-color: white;
+    width: 70vw;
+    height: 100vh;
+    position: fixed;
+    left: -110%;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 3vw;
+    box-sizing: border-box;
+    overflow: scroll;
+    border: 1px solid #eeeeeead;
+    transition: 200ms linear;
+    display: none;
+}
+
+#menu-one-level.active {
+    left: 0;
+}
+
+#menu-one-level li.active {
+    background-color: var(--text-color);
+    color: white;
+}
+
+#menu-one-level li {
+    margin: 1vh 0px;
+    padding: 2vw;
+    transition: 200ms linear;
+}
+
+#menu-one-level>li>div>.fa-caret-down {
+    margin-left: 5vw;
+
+}
+
+#menu-one-level>li {
+    display: flex;
+    flex-direction: column;
+}
+
+#menu-one-level>li>div {
+    display: flex;
+    align-items: center;
+}
+
+#menu-one-level>li>div p,
+#menu-one-level>li>div i {
+    font-size: 14px !important;
+}
+
+#menu-one-level>li>div>p {
+    margin-left: 2vw;
+}
+
+.menu-two-level {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5vw;
+}
+
+.menu-two-level>li,
+.menu-two-level>li>div {
+    font-size: 13px !important;
+}
+
+.menu-two-level>li {
+    margin: 1vh 0px;
+}
+
+.menu-two-level>li>div>p {
+    font-size: 14px;
+}
+
+.menu-title-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-title-box i {
+    margin-left: 5vw;
+}
+
+.menu-three-level {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2vw;
+}
+
+.menu-three-level>li {
+    font-size: 12px;
 }
 
 /* 联级菜单 */
@@ -443,6 +541,12 @@ li {
     }
 
     #nav-bar-menu-btn {
-        display: initial;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+
+    #menu-one-level {
+        display: flex;
     }
 }
