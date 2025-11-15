@@ -184,6 +184,7 @@
                 <ul id="menu-one-level">
                 </ul>
             </div>
+            <div id="nav-mask"></div>
         </div>
     </header>
 </body>
@@ -360,8 +361,14 @@
         }
         elementActive.classList.add(className)
     }
-    document.querySelector('#nav-bar-menu-btn').addEventListener('click', function () {
+    let nav_mask = document.querySelector('#nav-bar-menu-btn')
+    nav_mask.addEventListener('click', function () {
         one_level_menu.classList.toggle('active')
+        nav_mask.classList.toggle('active')
+    })
+    nav_mask.addEventListener('click', function () {
+        one_level_menu.classList.toggle('active')
+        nav_mask.classList.toggle('active')
     })
 </script>
 

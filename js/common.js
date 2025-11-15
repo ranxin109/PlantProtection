@@ -73,6 +73,7 @@ setTimeout(function () {
     scrollAnation()
     toggleNav()
     toggleTranslate()
+    mobile_nav()
 }, 500)
 
 function reTitle(title, bgImage) {
@@ -212,22 +213,23 @@ let nav_data_list = [
         icon: 'fa-user'
     }
 ]
-let mobile_nav_html = ''
-let menu_one_level = document.querySelector('#menu-one-level')
-for (let index = 0; index < nav_data_list.length; index++) {
-    let two_level = ''
-    let three_level = ''
-    if (nav_data_list[index].children) {
-        console.log(nav_data_list[index].children)
-        two_level = ''
-        for (let j = 0; j < nav_data_list[index].children.length; j++) {
-            const element = nav_data_list[index].children[j];
-            if (element.children) {
-                three_level = ''
-                element.children.forEach(three_element => {
-                    three_level += `<li>${three_element.name}</li>`
-                })
-                two_level += `
+function mobile_nav() {
+    let mobile_nav_html = ''
+    let menu_one_level = document.querySelector('#menu-one-level')
+    for (let index = 0; index < nav_data_list.length; index++) {
+        let two_level = ''
+        let three_level = ''
+        if (nav_data_list[index].children) {
+            console.log(nav_data_list[index].children)
+            two_level = ''
+            for (let j = 0; j < nav_data_list[index].children.length; j++) {
+                const element = nav_data_list[index].children[j];
+                if (element.children) {
+                    three_level = ''
+                    element.children.forEach(three_element => {
+                        three_level += `<li>${three_element.name}</li>`
+                    })
+                    two_level += `
                 <li>
                     <div class="menu-title-box">
                         <p>${element.name}</p>
@@ -238,11 +240,11 @@ for (let index = 0; index < nav_data_list.length; index++) {
                     </ul>
                 </li>
                 `
-            } else {
-                two_level += `<li>${element.name}</li>`
+                } else {
+                    two_level += `<li>${element.name}</li>`
+                }
             }
-        }
-        mobile_nav_html += `
+            mobile_nav_html += `
             <li data-nav="PlantProtection">
                         <div>
                             <i class="fa-solid ${nav_data_list[index].icon}"></i>
@@ -252,8 +254,8 @@ for (let index = 0; index < nav_data_list.length; index++) {
                         <ul class="menu-two-level">${two_level}</ul>
             </li>
             `
-    } else {
-        mobile_nav_html += `
+        } else {
+            mobile_nav_html += `
         <li class="" data-nav="Home">
                         <div>
                             <i class="fa-solid ${nav_data_list[index].icon}"></i>
@@ -261,34 +263,37 @@ for (let index = 0; index < nav_data_list.length; index++) {
                         </div>
                     </li>
         `
+        }
+
+
     }
+    menu_one_level.innerHTML = mobile_nav_html
+    document.querySelector('#menu-one-level>:first-child').classList.add('active')
+    let all_level_element_list = document.querySelector('#menu-one-level').querySelectorAll('*')
+    let one_level_element_list = document.querySelectorAll('#menu-one-level>li')
+    let one_level_menu = document.querySelector('#menu-one-level')
+    one_level_element_list.forEach(item => {
+        item.addEventListener('click', function (e) {
+            if (!e.currentTarget.querySelector('ul')) {
+                toggleClass('active', all_level_element_list, e.currentTarget)
+                return
+            }
+            if ((e.target.tagName === 'LI') & !e.target.querySelector('ul')) {
+                toggleClass('active', all_level_element_list, e.target)
 
-
-}
-menu_one_level.innerHTML = mobile_nav_html
-document.querySelector('#menu-one-level>:first-child').classList.add('active')
-let all_level_element_list = document.querySelector('#menu-one-level').querySelectorAll('*')
-let one_level_element_list = document.querySelectorAll('#menu-one-level>li')
-let one_level_menu = document.querySelector('#menu-one-level')
-one_level_element_list.forEach(item => {
-    item.addEventListener('click', function (e) {
-        if (!e.currentTarget.querySelector('ul')) {
-            toggleClass('active', all_level_element_list, e.currentTarget)
-            return
-        }
-        if ((e.target.tagName === 'LI') & !e.target.querySelector('ul')) {
-            toggleClass('active', all_level_element_list, e.target)
-
-        }
+            }
+        })
     })
-})
-
-function toggleClass(className, elementList, elementActive) {
-    for (let index = 0; index < elementList.length; index++) {
-        elementList[index].classList.remove(className)
-    }
-    elementActive.classList.add(className)
+    let nav_mask = document.querySelector('#nav-bar-menu-btn')
+    nav_mask.addEventListener('click', function () {
+        one_level_menu.classList.toggle('active')
+        nav_mask.classList.toggle('active')
+    })
+    nav_mask.addEventListener('click', function () {
+        one_level_menu.classList.toggle('active')
+        nav_mask.classList.toggle('active')
+    })
 }
-document.querySelector('#nav-bar-menu-btn').addEventListener('click', function () {
-    one_level_menu.classList.toggle('active')
-})
+
+
+
