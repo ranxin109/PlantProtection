@@ -143,8 +143,14 @@ body {
     cursor: pointer;
 }
 
+#nav-bar-box li.active {
+    background-color: var(--text-color);
+    color: white;
+}
+
 #nav-bar-box>li.active {
     color: var(--text-color);
+    background-color: transparent;
 }
 
 #nav-bar-box>li>p {
@@ -317,15 +323,37 @@ body {
     animation: moreUp 150ms linear;
 }
 
-.more-first li {
+#nav-bar-box div.active {
+    background-color: var(--text-color);
+    color: white;
+}
+
+.more-first li,
+.more-first>li>div {
     position: relative;
     text-wrap: nowrap;
-    padding: .3125rem .625rem;
     font-size: 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: white;
+
+}
+
+.more-first>li>div {
+    width: 100%;
+    font-size: 12px !important;
+    box-sizing: border-box;
+    padding: .3125rem .625rem;
+    background-color: transparent;
+}
+
+.more-first>li>div p {
+    font-size: 12px !important;
+}
+
+.more-first>li:not(.active)>div:not(.active):hover {
+    background-color: #eee;
 }
 
 .more-first i {

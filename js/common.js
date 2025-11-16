@@ -230,9 +230,10 @@ function mobile_nav() {
                 const element = nav_data_list[index].children[j];
                 if (element.children) {
                     three_level = ''
+                    desk_three_level = ''
                     element.children.forEach(three_element => {
                         three_level += `<li data-mnav="${three_element.location}">${three_element.name}</li>`
-                        desk_three_level += ` <li data-nav="${three_element.location}">${three_element.name}</li>`
+                        desk_three_level += ` <li data-nav="${three_element.location}"><div>${three_element.name}</div></li>`
                     })
                     two_level += `
                 <li>
@@ -246,16 +247,20 @@ function mobile_nav() {
                 </li>
                 `
                     desk_two_level += `
-                    <li>${element.name}
+                    <li>
+                        <div>
+                            <p>${element.name}</p>
                         <i class="fa-solid fa-caret-right"></i>
+
+                        </div>
                         <ul class="more-first more-second">
-                            ${three_level}
+                            ${desk_three_level}
                         </ul>
                     </li>
                     `
                 } else {
                     two_level += `<li data-mnav="${element.location}">${element.name}</li>`
-                    desk_two_level += `<li data-nav="${element.location}">${element.name}</li>`
+                    desk_two_level += `<li data-nav="${element.location}"><div>${element.name}</div></li>`
                 }
             }
             mobile_nav_html += `
@@ -269,7 +274,7 @@ function mobile_nav() {
             </li>
             `
             desk_nav_html += `
-            <li data-nav="Resources" ><i class="fa-solid ${nav_data_list[index].icon}"></i>
+            <li ><i class="fa-solid ${nav_data_list[index].icon}"></i>
                 <p>${nav_data_list[index].name}</p>
                 <ul class="more-first">
                     ${desk_two_level}
@@ -303,6 +308,7 @@ function mobile_nav() {
     let one_level_element_list = document.querySelectorAll('#menu-one-level>li')
     let one_level_menu = document.querySelector('#menu-one-level')
     let desk_one_level_element_list = document.querySelectorAll('#nav-bar-box>li')
+    let desk_all_level_element_list = document.querySelector('#nav-bar-box').querySelectorAll('*')
 
     one_level_element_list.forEach(item => {
         item.addEventListener('click', function (e) {
@@ -310,7 +316,6 @@ function mobile_nav() {
             if (!e.currentTarget.querySelector('ul')) {
                 toggleClass('active', all_level_element_list, e.currentTarget)
                 html_location = e.currentTarget.dataset.mnav
-                return
             }
             if ((e.target.tagName === 'LI') && !e.target.querySelector('ul')) {
                 toggleClass('active', all_level_element_list, e.target)
@@ -324,18 +329,21 @@ function mobile_nav() {
     })
     desk_one_level_element_list.forEach(item => {
         item.addEventListener('click', function (e) {
+
             let html_location
-            if (!e.currentTarget.querySelector('ul')) {
-                toggleClass('active', all_level_element_list, e.currentTarget)
-                html_location = e.currentTarget.dataset.nav
-                return
+            let element_ = e.target
+            if (e.target === e.currentTarget) {
+                element_ = e.target
+            } else if ((e.target.tagName === 'P' || e.target.tagName === 'I') && e.target !== e.target.parentNode) {
+                element_ = e.target.parentNode
+            } else {
+                if (!e.target.closest('.more-first')) return
+                if (e.target === e.target.closest('.more-first')) return
+                if (e.target.parentNode.querySelector('ul')) return
+                if (e.target.tagName === 'DIV' || e.target.tagName === 'P' || e.target.tagName === 'I') element_ = e.target.closest('[data-nav]')
             }
-            if ((e.target.tagName === 'LI') && !e.target.querySelector('ul')) {
-                toggleClass('active', all_level_element_list, e.target)
-                html_location = e.target.dataset.nav
-            }
-            console.log(html_location)
-            if (html_location !== 'undefined' && html_location !== '' && html_location !== undefined) {
+            html_location = element_.dataset.nav
+            if (html_location !== 'undefined' && html_location !== '' && html_location !== undefined && html_location !== null) {
                 location.href = `../pages/${html_location}.html`
             }
         })
@@ -358,8 +366,18 @@ function M_active_nav(dataset) {
     console.log(dataset)
     let all_level_element_list = document.querySelector('#menu-one-level').querySelectorAll('*')
     let set_nav_element = document.querySelector(`[data-mnav="${dataset}"]`)
+
+    let desk_all_level_element_list = document.querySelector('#nav-bar-box').querySelectorAll('*')
+    let desk_set_nav_element = document.querySelector(`[data-nav="${dataset}"]`)
     toggleClass('active', all_level_element_list, set_nav_element)
-    // console.log(set_nav_element)
+    toggleClass('active', desk_all_level_element_list, desk_set_nav_element)
+    if (desk_set_nav_element.closest('.more-second')) {
+        desk_set_nav_element?.closest('.more-second').parentNode.classList.add('active')
+        desk_set_nav_element?.closest('.more-second').parentNode.parentNode.parentNode.classList.add('active')
+    } else if (desk_set_nav_element.parentNode.classList.length === 1) {
+        desk_set_nav_element.parentNode.parentNode.classList.add('active')
+    }
+
 }
 
 function toggleClass(className, elementList, elementActive) {
