@@ -196,7 +196,6 @@ body {
     z-index: 0;
     display: none;
     transition: 200ms linear;
-    pointer-events: none;
 
 }
 
@@ -322,7 +321,7 @@ body {
     position: relative;
     text-wrap: nowrap;
     padding: .3125rem .625rem;
-    font-size: .875rem;
+    font-size: 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;

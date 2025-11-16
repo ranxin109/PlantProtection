@@ -71,7 +71,7 @@ requestComponents('BgTitle', 'page-title')
 
 setTimeout(function () {
     scrollAnation()
-    toggleNav()
+    // toggleNav()
     toggleTranslate()
     mobile_nav()
 }, 500)
@@ -83,18 +83,18 @@ function reTitle(title, bgImage) {
     BgTitle.textContent = title
 }
 
-function toggleNav() {
-    let nav = document.querySelector('#nav-bar-box')
-    let nav_li = document.querySelectorAll('#nav-bar-box>li')
-    for (let index = 0; index < nav_li.length; index++) {
-        const element = nav_li[index];
-        element.addEventListener('click', function (e) {
-            e.preventDefault()
-            console.log(e.currentTarget)
-            location.href = `${e.currentTarget.dataset.nav}.html`
-        })
-    }
-}
+// function toggleNav() {
+//     let nav = document.querySelector('#nav-bar-box')
+//     let nav_li = document.querySelectorAll('#nav-bar-box>li')
+//     for (let index = 0; index < nav_li.length; index++) {
+//         const element = nav_li[index];
+//         element.addEventListener('click', function (e) {
+//             e.preventDefault()
+//             console.log(e.currentTarget)
+//             location.href = `${e.currentTarget.dataset.nav}.html`
+//         })
+//     }
+// }
 
 function activeNav(index) {
     let nav_bar_li = document.querySelectorAll('#nav-bar-box>li')
@@ -212,12 +212,17 @@ let nav_data_list = [
         location: 'Login'
     }
 ]
+
 function mobile_nav() {
     let mobile_nav_html = ''
+    let desk_nav_html = ''
     let menu_one_level = document.querySelector('#menu-one-level')
+    let desk_menu_one_level = document.querySelector('#nav-bar-box')
     for (let index = 0; index < nav_data_list.length; index++) {
         let two_level = ''
         let three_level = ''
+        let desk_two_level = ''
+        let desk_three_level = ''
         if (nav_data_list[index].children) {
             console.log(nav_data_list[index].children)
             two_level = ''
@@ -227,6 +232,7 @@ function mobile_nav() {
                     three_level = ''
                     element.children.forEach(three_element => {
                         three_level += `<li data-mnav="${three_element.location}">${three_element.name}</li>`
+                        desk_three_level += ` <li data-nav="${three_element.location}">${three_element.name}</li>`
                     })
                     two_level += `
                 <li>
@@ -239,8 +245,17 @@ function mobile_nav() {
                     </ul>
                 </li>
                 `
+                    desk_two_level += `
+                    <li>${element.name}
+                        <i class="fa-solid fa-caret-right"></i>
+                        <ul class="more-first more-second">
+                            ${three_level}
+                        </ul>
+                    </li>
+                    `
                 } else {
                     two_level += `<li data-mnav="${element.location}">${element.name}</li>`
+                    desk_two_level += `<li data-nav="${element.location}">${element.name}</li>`
                 }
             }
             mobile_nav_html += `
@@ -253,6 +268,15 @@ function mobile_nav() {
                         <ul class="menu-two-level">${two_level}</ul>
             </li>
             `
+            desk_nav_html += `
+            <li data-nav="Resources" ><i class="fa-solid ${nav_data_list[index].icon}"></i>
+                <p>${nav_data_list[index].name}</p>
+                <ul class="more-first">
+                    ${desk_two_level}
+                </ul>
+                <i class="fa-solid fa-caret-down"></i>
+            </li >
+            `
         } else {
             mobile_nav_html += `
         <li class="" data-mnav="${nav_data_list[index].location}">
@@ -262,15 +286,24 @@ function mobile_nav() {
                         </div>
                     </li>
         `
+            desk_nav_html += `
+            <li data-nav="${nav_data_list[index].location}">
+                    <i class="fa-solid ${nav_data_list[index].icon}"></i>
+                    <p>${nav_data_list[index].name}</p>
+                </li>
+            `
         }
 
 
     }
     menu_one_level.innerHTML = mobile_nav_html
+    desk_menu_one_level.innerHTML = desk_nav_html
     document.querySelector('#menu-one-level>:first-child').classList.add('active')
     let all_level_element_list = document.querySelector('#menu-one-level').querySelectorAll('*')
     let one_level_element_list = document.querySelectorAll('#menu-one-level>li')
     let one_level_menu = document.querySelector('#menu-one-level')
+    let desk_one_level_element_list = document.querySelectorAll('#nav-bar-box>li')
+
     one_level_element_list.forEach(item => {
         item.addEventListener('click', function (e) {
             let html_location
@@ -284,8 +317,24 @@ function mobile_nav() {
                 html_location = e.target.dataset.mnav
             }
             console.log(html_location)
-            // console.log(typeof html_location)
-            // console.log('undefinedString：', html_location === 'undefined', '|', ' :', html_location === '', '|', 'undefined：', html_location === undefined)
+            if (html_location !== 'undefined' && html_location !== '' && html_location !== undefined) {
+                location.href = `../pages/${html_location}.html`
+            }
+        })
+    })
+    desk_one_level_element_list.forEach(item => {
+        item.addEventListener('click', function (e) {
+            let html_location
+            if (!e.currentTarget.querySelector('ul')) {
+                toggleClass('active', all_level_element_list, e.currentTarget)
+                html_location = e.currentTarget.dataset.nav
+                return
+            }
+            if ((e.target.tagName === 'LI') && !e.target.querySelector('ul')) {
+                toggleClass('active', all_level_element_list, e.target)
+                html_location = e.target.dataset.nav
+            }
+            console.log(html_location)
             if (html_location !== 'undefined' && html_location !== '' && html_location !== undefined) {
                 location.href = `../pages/${html_location}.html`
             }
@@ -300,6 +349,9 @@ function mobile_nav() {
         one_level_menu.classList.toggle('active')
         nav_mask.classList.toggle('active')
     })
+    let header_height = document.querySelector('#nav-bar-conrainer').offsetHeight
+    one_level_menu.style.top = header_height + 'px'
+    one_level_menu.style.height = `calc(100vh - ${header_height}px)`
 
 }
 function M_active_nav(dataset) {

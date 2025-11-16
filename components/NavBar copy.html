@@ -403,7 +403,6 @@
         let two_level = ''
         let three_level = ''
         if (nav_data_list[index].children) {
-            console.log(nav_data_list[index].children)
             two_level = ''
             for (let j = 0; j < nav_data_list[index].children.length; j++) {
                 const element = nav_data_list[index].children[j];
@@ -453,8 +452,12 @@
     menu_one_level.innerHTML = mobile_nav_html
     document.querySelector('#menu-one-level>:first-child').classList.add('active')
 
-    let three_level_element_list = document.querySelectorAll('')
-
+    let three_level_element_list = document.querySelectorAll('#menu-one-level>li')
+    three_level_element_list.forEach(item => {
+        item.addEventListener('click', function (e) {
+            toggleClass('active', three_level_element_list, e.target)
+        })
+    })
     function toggleClass(className, elementList, elementActive) {
         for (let index = 0; index < elementList.length; index++) {
             if (elementList[index] === elementActive) break
