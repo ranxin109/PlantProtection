@@ -19,6 +19,19 @@
             object-fit: cover;
             max-width: 80%;
         }
+
+        @media screen and (max-width: 768px) {
+            .image-box {
+                grid-template-columns: 1fr;
+
+            }
+
+            .image-box img {
+                width: 100%;
+                max-width: none;
+                margin-bottom: 10px;
+            }
+        }
     </style>
 </head>
 
