@@ -54,6 +54,7 @@
 
         .m-table-item {
             border: 1px solid gray;
+            margin-bottom: .625rem;
         }
 
         .m-table-item.active .m-table-main {
@@ -70,6 +71,10 @@
 
         }
 
+        #m-table-container {
+            display: none;
+        }
+
         .m-table-main li {
             margin-left: 12% !important;
         }
@@ -77,6 +82,10 @@
         @media screen and (max-width: 768px) {
             #table-container {
                 display: none;
+            }
+
+            #m-table-container {
+                display: block;
             }
         }
     </style>
