@@ -123,8 +123,8 @@ let nav_data_list = [
         icon: 'fa-circle-info',
         children: [
             { name: 'Aims & Activities', location: 'About' },
-            { name: 'Brief History of IAPPS' },
-            { name: 'The IAPPS Board' }
+            { name: 'Brief History of IAPPS', location: 'AboutHistory' },
+            { name: 'The IAPPS Board', location: 'AboutBoard' }
         ]
     },
     {
