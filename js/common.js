@@ -175,7 +175,7 @@ let nav_data_list = [
         icon: 'fa-building-columns',
         children: [
             { name: 'Online News – GPPN', location: 'Resources' },
-            { name: 'IAPPS Newsletter & Archive' },
+            { name: 'IAPPS Newsletter & Archive', location: 'Resources2' },
             { name: 'Crop Protection Journal' },
             {
                 name: 'Education and Training',
@@ -358,13 +358,12 @@ function mobile_nav() {
         nav_mask.classList.toggle('active')
     })
     let header_height = document.querySelector('#nav-bar-conrainer').offsetHeight
-    one_level_menu.style.top = header_height + 'px'
-    one_level_menu.style.height = `calc(100vh - ${header_height}px)`
+    one_level_menu.style.top = header_height - 10 + 'px'
+    one_level_menu.style.height = `calc(100vh - ${header_height - 10}px)`
     window.addEventListener('resize', function () {
         header_height = document.querySelector('#nav-bar-conrainer').offsetHeight
-        one_level_menu.style.top = header_height + 'px'
+        one_level_menu.style.top = header_height - 10 + 'px'
         one_level_menu.style.height = `calc(100vh - ${header_height}px)`
-        console.log('123')
     });
 }
 function M_active_nav(dataset) {
